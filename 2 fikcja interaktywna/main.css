@@ -46,7 +46,7 @@ body {
 	background: -webkit-radial-gradient(rgb(0, 40, 200), rgb(10, 10, 0));
 	background: -moz-radial-gradient(rgb(0, 40, 200), rgb(10, 10, 0));
 	background: -ms-radial-gradient(rgb(0, 40, 200), rgb(10, 10, 0));
-	background: -o-radial-gradient(rgb(0, 40, 200), rgb(10, 10, 0));	
+	background: -o-radial-gradient(rgb(0, 40, 200), rgb(10, 10, 0));
 	background: radial-gradient(rgb(0, 40, 200), rgb(10, 10, 0));
 }
 
@@ -74,4 +74,33 @@ body {
 	border-radius: 5px;
 	font-family: 'Open Sans', Arial, sans-serif;
 	font-size: 30px;
+}
+
+.slide p {
+	margin-top: 15px;
+	margin-bottom: 30px;
+	line-height: 45px;
+}
+
+.slide a, .slide a:visited {
+	color: #071549;
+	text-decoration: none;
+	background-color: #abc;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #cde;
+}
+
+.slide a:hover, .slide a:active {
+	background-color: #cde;
+}
+
+.slide .slide-text {
+	height: 450px;
+}
+
+.menu {
+	border-top: 2px solid black;
+	padding-top: 25px;
+	text-align: center;
 }
