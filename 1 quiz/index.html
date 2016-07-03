@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf=8">	
+	<title>Quiz</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<!-- to jest potrzebne do działania skrytpu atom.js -->
+	<!--
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="impress.js"></script>
+	
+	<script type="text/javascript" src="atom.js"></script>
+	<script type="text/javascript" src="easel.js"></script>
+	<script type="text/javascript" src="melon.js"></script>
+	<script type="text/javascript" src="yabble.js"></script>
+	<script type="text/javascript" src="jquery.gamequery.js"></script>
+	<script type="text/javascript" src="jaws.js"></script>
+	<script type="text/javascript" src="enchant.js"></script>
+	<script type="text/javascript" src="crafty.js"></script>
+	<script type="text/javascript" src="game.js"></script>
+	-->
+</head>
+<body onclick="checkAnswers();">
+	<h1>Quiz</h1>
+	<div id="quiz">
+		<div id="question1">
+			<div class="question">
+				Który z tych typów plików nie jest używany do tworzenia stron internetowych?
+			</div>
+			<input type="radio" name="question1" value="a" />
+			<label>.html</label>
+			<input type="radio" name="question1" value="b" />
+			<label>.exe</label>
+			<input type="radio" name="question1" value="c" />
+			<label>.js</label>
+			<input type="radio" name="question1" value="d" />
+			<label>.css</label>
+		</div>
+		<br />
+
+		<div id="question2">
+			<div class="question">
+				Która para znaków jest używana do oznaczania obieków JavaScript?
+			</div>
+			<input type="radio" name="question2" value="a" />
+			<label>[]</label>
+			<input type="radio" name="question2" value="b" />
+			<label>;;</label>
+			<input type="radio" name="question2" value="c" />
+			<label>{}</label>
+			<input type="radio" name="question2" value="d" />
+			<label>()</label>
+		</div>
+		<br />
+
+		<div id="question3">
+			<div class="question">
+				Krety są...
+			</div>
+			<input type="radio" name="question3" value="a" />
+			<label>wszystkożerne</label>
+			<input type="radio" name="question3" value="b" />
+			<label>urocze</label>
+			<input type="radio" name="question3" value="c" />
+			<label>obrzydliwe</label>
+			<input type="radio" name="question3" value="d" />
+			<label>wszystkie powyższe</label>
+		</div>
+		<br />
+
+		<div id="question4">
+			<div class="question">
+				Japoński znak wymawia się...
+			</div>
+			<input type="radio" name="question4" value="a" />
+			<label>ka</label>
+			<input type="radio" name="question4" value="b" />
+			<label>ko</label>
+			<input type="radio" name="question4" value="c" />
+			<label>ke</label>
+			<input type="radio" name="question4" value="d" />
+			<label>ki</label>
+		</div>
+		<br />
+
+		<div id="question5">
+			<div class="question">
+				Stała grawitacji na Ziemi w przybliżeniu wynosi...
+			</div>
+			<input type="radio" name="question5" value="a" />
+			<label>10 m/s^2</label>
+			<input type="radio" name="question5" value="b" />
+			<label>0,809 m/s^2</label>
+			<input type="radio" name="question5" value="c" />
+			<label>9,81 m/s^2</label>
+			<input type="radio" name="question5" value="d" />
+			<label>84,4 m/s^2</label>
+		</div>
+		<br />
+
+		<div id="question6">
+			<div class="question">
+				Jak wygląda dzisiętna liczba 45 w systemie dwójkowym?
+			</div>
+			<input type="radio" name="question6" value="a" />
+			<label>101101</label>
+			<input type="radio" name="question6" value="b" />
+			<label>110011</label>
+			<input type="radio" name="question6" value="c" />
+			<label>011101</label>
+			<input type="radio" name="question6" value="d" />
+			<label>101011</label>
+		</div>
+		<br />
+
+		<div id="question7">
+			<div class="question">
+				4 &lt;&lt; = ...
+			</div>
+			<input type="radio" name="question7" value="a" />
+			<label>16</label>
+			<input type="radio" name="question7" value="b" />
+			<label>4</label>
+			<input type="radio" name="question7" value="c" />
+			<label>2</label>
+			<input type="radio" name="question7" value="d" />
+			<label>8</label>
+		</div>
+		<br />
+
+		<div id="question8">
+			<div class="question">
+				Jak obliczyć długość przeciwprostokątnej trójkąta prostokątnego, mając podane długości jego przyprostokątnych?
+			</div>
+			<input type="radio" name="question8" value="a" />
+			<label>pi * promień^2</label>
+			<input type="radio" name="question8" value="b" />
+			<label>korzystając z twierdzenia Pitagorasa</label>
+			<input type="radio" name="question8" value="c" />
+			<label>używając kalkulatora</label>
+			<input type="radio" name="question8" value="d" />
+			<label>sin(bok1 + bok2)</label>
+		</div>
+		<br />
+
+		<div id="question9">
+			<div class="question">
+				Prawda czy fałsz: aby gra bya coś warta, musi zmieniać klatki z prdkością przynajmniej 60 na sekundę?
+			</div>
+			<input type="radio" name="question9" value="a" />
+			<label>prawda</label>
+			<input type="radio" name="question9" value="b" />
+			<label>fałsz</label>
+		</div>
+		<br />
+
+		<div id="question10">
+			<div class="question">
+				Dzięki serwerowi można...
+			</div>
+			<input type="radio" name="question10" value="a" />
+			<label>ukryć swój kod</label>
+			<input type="radio" name="question10" value="b" />
+			<label>utworzyć świetną grę</label>
+			<input type="radio" name="question10" value="c" />
+			<label>umożliwić graczom wspólną grę</label>
+			<input type="radio" name="question10" value="d" />
+			<label>wszystkie powyższe</label>
+		</div>
+	</div>
+	
+	<canvas></canvas>
+	
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="impress.js"></script>
+	<!-- to jest potrzebne do działania skrytpu atom.js -->
+	<script type="text/javascript" src="atom.js"></script>
+	<script type="text/javascript" src="easel.js"></script>
+	<script type="text/javascript" src="melon.js"></script>
+	<script type="text/javascript" src="yabble.js"></script>
+	<script type="text/javascript" src="jquery.gamequery.js"></script>
+	<script type="text/javascript" src="jaws.js"></script>
+	<script type="text/javascript" src="enchant.js"></script>
+	<script type="text/javascript" src="crafty.js"></script>
+	<script type="text/javascript" src="game.js"></script>
+</body>
+</html>
