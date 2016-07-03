@@ -104,3 +104,46 @@ body {
 	padding-top: 25px;
 	text-align: center;
 }
+
+
+/*inventory container styles*/
+img.item {
+	width: 100%;
+	height: 100%;
+	cursor: move;
+	padding: 0px;
+}
+
+#player_inventory {
+	position: fixed;
+	text-align: center;
+	width: 180px;
+	padding: 15px;
+	border-radius: 5px;
+	top: 75px;
+	left: 25px;
+	background-color: white;
+}
+
+.menu .inventory-box {
+	margin-right: 20px;
+}
+
+.inventory-box {
+	position: static;
+	display: inline-block;
+	height: 130px;
+	width: 130px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.inventory-box.empty {
+	border: 2px dashed #000;
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 30px;
+	margin-bottom: 15px;
+}

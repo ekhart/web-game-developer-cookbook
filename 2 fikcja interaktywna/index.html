@@ -6,21 +6,35 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+	<div id="player_inventory" class="itemable">
+		<span class="item-container">
+			<h3>Schowek:</h3>
+		</span>
+		<div class="inventory-box empty"></div>
+		<div class="inventory-box empty"></div>
+		<div class="inventory-box empty"></div>
+	</div>
 	<div id="impress">
-		<div id="1" class="step slide">
+		<div id="1" class="step slide itemable">
 			<div class="slide-text">
 				<p>Tam jest maszyna czasu. Przestawić przełącznik?</p>
 				<p><a href="#2">PRZEŁĄCZ</a></p>
 				<p><a href="#3">POCZEKAJ,</a> aż tata, który jest naukowcem, wróci do domu</p>
 			</div>
+
+			<div class="menu item-container">
+				<div class="inventory-box">
+					<img src="bat.png" alt="bat" class="item" id="bat">
+				</div>
+			</div>
 		</div>
-		<div id="2" class="step slide" data-x="1500">
+		<div id="2" class="step slide itemable" data-x="1500">
 			<div class="slide-text">
 				<p>Cofnąłeś się w czasie. To było fajne.</p>
 			</div>
 			<div class="menu"><a href="#1">ZACZNIJ OD NOWA</a></div>
 		</div>
-		<div id="3" class="step slide" data-x="-1500">
+		<div id="3" class="step slide itemable" data-x="-1500">
 			<div class="slide-text">
 				<p>Poobijałeś się troch, aż w końcu Twój tata wrócił do domu.</p>
 				<p>Pomógł Ci odrobić pracę domową.</p>
@@ -34,5 +48,7 @@
 	<script type="text/javascript">
 		impress().init();
 	</script>
+	<script type="text/javascript" src="game.js"></script>
+	<script type="text/javascript" src="dragDrop.js"></script>
 </body>
 </html>
