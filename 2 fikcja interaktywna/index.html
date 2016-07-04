@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	<div id="player_inventory" class="itemable">
+	<div id="player_inventory">
 		<span class="item-container">
 			<h3>Schowek:</h3>
 		</span>
@@ -15,11 +15,12 @@
 		<div class="inventory-box empty"></div>
 	</div>
 	<div id="impress">
-		<div id="1" class="step slide itemable">
+		<div id="slide1" class="step slide">
 			<div class="slide-text">
 				<p>Tam jest maszyna czasu. Przestawić przełącznik?</p>
-				<p><a href="#2">PRZEŁĄCZ</a></p>
-				<p><a href="#3">POCZEKAJ,</a> aż tata, który jest naukowcem, wróci do domu</p>
+				<p><a href="#slide2">PRZEŁĄCZ</a></p>
+				<p><a href="#slide3">POCZEKAJ,</a> aż tata, który jest naukowcem, wróci do domu</p>
+				<div class="event-text"></div>
 			</div>
 
 			<div class="menu item-container">
@@ -28,19 +29,24 @@
 				</div>
 			</div>
 		</div>
-		<div id="2" class="step slide itemable" data-x="1500">
+		<div id="slide2" class="step slide" data-x="1500">
 			<div class="slide-text">
-				<p>Cofnąłeś się w czasie. To było fajne.</p>
+				<p>A niech to. Dinozaur. Ciekawe, czy można go czymś walnąć...</p>
+				<div class="event-text"></div>
 			</div>
-			<div class="menu"><a href="#1">ZACZNIJ OD NOWA</a></div>
+			<div class="menu">
+				<div class="inventory-box">
+					<img src="dino.png" alt="dino" class="item" id="dino">
+				</div>
 		</div>
-		<div id="3" class="step slide itemable" data-x="-1500">
+		<div id="slide3" class="step slide" data-x="-1500">
 			<div class="slide-text">
 				<p>Poobijałeś się troch, aż w końcu Twój tata wrócił do domu.</p>
 				<p>Pomógł Ci odrobić pracę domową.</p>
 				<p>Było całkiem fajnie, ale nie aż tak.</p>
+				<div class="event-text"></div>
 			</div>
-			<div class="menu"><a href="#1">ZACZNIJ OD NOWA</a></div>
+			<div class="menu"><a href="#slide1">ZACZNIJ OD NOWA</a></div>
 		</div>
 	</div>
 
