@@ -86,6 +86,11 @@ game.things = (function() {
 	};
 })();
 
+function setImg(invetoryBox, item) {
+	invetoryBox.innerHTML = "<img src'"+item+".png' alt='"+item+"' class='item' id='"+item+"'>";
+	invetoryBox.classList.remove("empty");
+}
+
 game.slide = (function() {
 	var invetory = {
 		slide1: 'bat',
@@ -133,8 +138,7 @@ game.slide = (function() {
 				invetoryBox.innerHTML = "";
 				invetoryBox.classList.add("empty");
 			} else {
-				invetoryBox.innerHTML = "<img src'"+item+".png' alt='"+item+"' class='item' id='"+item+"'>";
-				invetoryBox.classList.remove("empty");
+				setImg(invetoryBox, item);
 			}
 	};
 
@@ -147,4 +151,64 @@ game.slide = (function() {
 		currentSlide: currentSlide
 	};
 
+})();
+
+game.playerInventory = (function() {
+	var items = { bat: false },
+
+	getInventoryBoxes = function() {
+		return document.querySelector('#player_inventory .invetory-box');
+	},
+
+	ckearInventory = function() {
+		[].forEach.call(getInventoryBoxes(), function(invetoryBox) {
+			invetoryBox.classList.add('empty');
+			invetoryBox.innerHTML = "";
+		});
+	},
+
+	setItems = function(item, ifItem, then) {
+		if (this.items[item.name] === false) {
+			this.items[item.name] = true;
+		}
+		return this.items;
+	},
+
+	addItem = function(item) {
+		return setItems(item, false, true);
+	},
+
+	deleteItem = function(item) {
+		return setItems(item, true, false);
+	},
+
+	draw = function() {
+		clearInventory();
+		var counter = 0,
+			invetoryBoxes = getInventoryBoxes();
+
+		for (var item in this.items) {
+			if (this.items[item] === true) {
+				setImg(invetoryBoxes[counter], item);
+			}
+			counter++;
+		}
+	};
+
+	return {
+		items: items,
+		addItem: addItem,
+		deleteItem: deleteItem,
+		draw: draw
+	};
+
+})();
+
+game.screen = (function() {
+	return {
+		draw: function() {
+			game.playerInventory.draw();
+			game.slide.draw(game.slide.currentSlide());
+		}
+	};
 })();
