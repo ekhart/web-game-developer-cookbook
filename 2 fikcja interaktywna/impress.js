@@ -1,7 +1,16 @@
 var game = {
     stepsTaken: [],
     updateAfterSetup: function (stepId) {
-        this.stepsTaken.push(stepId);
+        if (this.stepsTaken.length < 1
+            || stepId !== this.stepsTaken[this.stepsTaken.length - 1]) {
+
+            this.stepsTaken.push(stepId);
+            var numberOfSteps = this.stepsTaken.length,
+                stepsElement = document.getElementById('steps'),
+                newStep = document.createElement('li');
+            newStep.innerHTML = "" + numberOfSteps + ": <a href='#" + stepId + "'>" + stepId + "</a>";
+            stepsElement.insertBefore(newStep, stepsElement.firstChild);
+        }
     }
 };
 

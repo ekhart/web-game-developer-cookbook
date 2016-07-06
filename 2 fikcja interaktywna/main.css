@@ -147,3 +147,14 @@ h3 {
 	font-size: 30px;
 	margin-bottom: 15px;
 }
+
+#steps-taken {
+	position: fixed;
+	text-align: center;
+	width: 180px;
+	padding: 15px;
+	border-radius: 5px;
+	top: 75px;
+	right: 25px;
+	background-color: white;
+}
