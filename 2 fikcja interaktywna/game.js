@@ -10,7 +10,9 @@ game.things = (function() {
 				},
 				'dino': {
 					message: "<p>Uderzyłeś dinozaura kijem.</p><p>Rozzłościł się.</p>",
-					subject: "deleteItem"
+					subject: "deleteItem",
+					object: 'deleteItem',
+					callback: function() { game.screen.callDino(); }
 				},
 				'empty': {
 					message: "<p>Odłożyłeś kij.</p>",
@@ -75,6 +77,10 @@ game.things = (function() {
 					game.slide.setText(effects.message);
 				}
 
+				if (!!effects.callback) {
+					effects.callback();
+				}
+
 				game.screen.draw();
 		}
 	}
@@ -89,6 +95,11 @@ game.things = (function() {
 function setImg(invetoryBox, item) {
 	invetoryBox.innerHTML = "<img src'"+item+".png' alt='"+item+"' class='item' id='"+item+"'>";
 	invetoryBox.classList.remove("empty");
+}
+
+function clearInventoryBox(invetoryBox) {
+	invetoryBox.classList.add('empty');
+	invetoryBox.innerHTML = "";
 }
 
 game.slide = (function() {
@@ -135,8 +146,7 @@ game.slide = (function() {
 			invetoryBox = document.querySelector("#" + slideId + " .invetory-box");
 
 			if (item === null) {
-				invetoryBox.innerHTML = "";
-				invetoryBox.classList.add("empty");
+				clearInventoryBox(invetoryBox);
 			} else {
 				setImg(invetoryBox, item);
 			}
@@ -160,11 +170,8 @@ game.playerInventory = (function() {
 		return document.querySelector('#player_inventory .invetory-box');
 	},
 
-	ckearInventory = function() {
-		[].forEach.call(getInventoryBoxes(), function(invetoryBox) {
-			invetoryBox.classList.add('empty');
-			invetoryBox.innerHTML = "";
-		});
+	clearInventory = function() {
+		[].forEach.call(getInventoryBoxes(), clearInventoryBox);
 	},
 
 	setItems = function(item, ifItem, then) {
@@ -172,34 +179,31 @@ game.playerInventory = (function() {
 			this.items[item.name] = true;
 		}
 		return this.items;
-	},
-
-	addItem = function(item) {
-		return setItems(item, false, true);
-	},
-
-	deleteItem = function(item) {
-		return setItems(item, true, false);
-	},
-
-	draw = function() {
-		clearInventory();
-		var counter = 0,
-			invetoryBoxes = getInventoryBoxes();
-
-		for (var item in this.items) {
-			if (this.items[item] === true) {
-				setImg(invetoryBoxes[counter], item);
-			}
-			counter++;
-		}
 	};
 
 	return {
 		items: items,
-		addItem: addItem,
-		deleteItem: deleteItem,
-		draw: draw
+
+		addItem: function(item) {
+			return setItems(item, false, true);
+		},
+
+		deleteItem: function(item) {
+			return setItems(item, true, false);
+		},
+
+		draw: function() {
+			clearInventory();
+			var counter = 0,
+				invetoryBoxes = getInventoryBoxes();
+
+			for (var item in this.items) {
+				if (this.items[item] === true) {
+					setImg(invetoryBoxes[counter], item);
+				}
+				counter++;
+			}
+		}
 	};
 
 })();
@@ -209,6 +213,12 @@ game.screen = (function() {
 		draw: function() {
 			game.playerInventory.draw();
 			game.slide.draw(game.slide.currentSlide());
+		},
+		callDino: function() {
+			$('body').raptorize({
+				'enterOn': 'timer',
+				'delayTime': 2000
+			});
 		}
 	};
 })();
